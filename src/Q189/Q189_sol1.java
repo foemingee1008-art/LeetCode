@@ -1,0 +1,25 @@
+package Q189;
+
+public class Q189_sol1 {
+    public void rotate(int[] nums, int k) {
+        int n = nums.length;
+        if (n == 1){return;}
+        if (k == n){return;}
+        if (k > n){
+            k = k % n;
+        }
+        int[] arr = new int[n];
+        int j = 0;
+        for (int i = n - k; i < n; i++){
+            arr[j] = nums[i];
+            j++;
+        }
+        for (int i = 0; i < n - k; i++){
+            arr[j] = nums[i];
+            j++;
+        }
+        for (int i = 0; i < n; i++){
+            nums[i] = arr[i];
+        }
+    }
+}
